@@ -1,0 +1,2 @@
+download: 
+	bun download.ts
