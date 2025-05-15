@@ -1,4 +1,4 @@
-import { hashToken, hexDigit } from "./token";
+import type { hashToken, hexDigit } from "./token";
 
 type dimension<T extends string> = `${number}${T}`;
 
@@ -140,7 +140,7 @@ type oklabFunction = `oklab(${labFunctionArgument})`; // Skip first optional arg
 
 type oklchFunction = `oklch(${lchFunctionArgument})`; // Skip first optional argument [from <color>]?
 
-type dashedIdent = `--${string}`;
+export type dashedIdent = `--${string}`;
 
 type customParams =
   | dashedIdent

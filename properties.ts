@@ -120,7 +120,7 @@ export interface marginLeft {
   "Logical property group": "margin";
 }
 
-type marginLeftValue = marginTopValue
+type marginLeftValue = marginTopValue;
 
 export interface marginBlock {
   Name: "margin-block";
@@ -198,7 +198,7 @@ export interface marginInlineEnd {
 
 export interface marginBreak {
   Name: "margin-break";
-  Value: "auto" | 'keep' | 'discard';
+  Value: "auto" | "keep" | "discard";
   Initial: "auto";
   "Applies to": "all elements";
   Inherited: "no";
@@ -208,12 +208,21 @@ export interface marginBreak {
   "Animation type": "discrete";
 }
 
-type generateGroupOf2<T extends string> = `${T}` | `${T} ${T}`
-type generateGroupOf4<T extends string> = `${T}` | `${T} ${T}` | `${T} ${T} ${T}` | `${T} ${T} ${T} ${T}`
+type generateGroupOf2<T extends string> = `${T}` | `${T} ${T}`;
+type generateGroupOf4<T extends string> =
+  | `${T}`
+  | `${T} ${T}`
+  | `${T} ${T} ${T}`
+  | `${T} ${T} ${T} ${T}`;
 
-type marginTrimValueGroupFirst = generateGroupOf2<'block' | 'inline'>
-type marginTrimValueGroupSecond = generateGroupOf4<'block-start' | 'inline-start' | 'block-end' | 'inline-end'>
-type marginTrimValue = 'none' | marginTrimValueGroupFirst | marginTrimValueGroupSecond;
+type marginTrimValueGroupFirst = generateGroupOf2<"block" | "inline">;
+type marginTrimValueGroupSecond = generateGroupOf4<
+  "block-start" | "inline-start" | "block-end" | "inline-end"
+>;
+type marginTrimValue =
+  | "none"
+  | marginTrimValueGroupFirst
+  | marginTrimValueGroupSecond;
 
 export interface marginTrim {
   Name: "margin-trim";
@@ -226,3 +235,169 @@ export interface marginTrim {
   "Canonical order": "per grammar";
   "Animation type": "discrete";
 }
+
+export interface accentColor {
+  Name: "accent-color";
+  Value: "auto" | cssValues.color;
+  Initial: "auto";
+  "Applies to": "all elements";
+  Inherited: "yes";
+  Percentages: "n/a";
+  "Computed value": "the keyword 'auto' or a computed color";
+  "Canonical order": "per grammar";
+  "Animation type": "by computed value type";
+}
+
+type compatAuto =
+  | "searchfield"
+  | "textarea"
+  | "push-button"
+  | "slider-horizontal"
+  | "checkbox"
+  | "radio"
+  | "square-button"
+  | "menulist"
+  | "listbox"
+  | "meter"
+  | "progress-bar"
+  | "button";
+
+export interface appearence {
+  Name: "appearance";
+  Value: "none" | "auto" | "textfield" | "menulist-button" | compatAuto;
+  Initial: "none";
+  "Applies to": "all elements";
+  Inherited: "no";
+  Percentages: "n/a";
+  "Computed value": "specified keyword";
+  "Canonical order": "per grammar";
+  "Animation type": "discrete";
+}
+
+export interface all {
+  Name: "all";
+  Value: "initial" | "inherit" | "unset";
+  Initial: "see individual properties";
+  "Applies to": "see individual properties";
+  Inherited: "see individual properties";
+  Percentages: "see individual properties";
+  "Computed value": "see individual properties";
+  "Canonical order": "per grammar";
+  "Animation type": "see individual properties";
+}
+
+export interface alignContent {
+  Name: "align-content";
+  Value:
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "space-between"
+    | "space-around"
+    | "stretch";
+  Initial: "stretch";
+  "Applies to": "multi-line flex containers";
+  Inherited: "no";
+  Percentages: "n/a";
+  "Computed value": "specified keyword";
+  "Canonical order": "per grammar";
+  "Animation type": "discrete";
+}
+
+export interface alignItems {
+  Name: "align-items";
+  Value: "flex-start" | "flex-end" | "center" | "baseline" | "stretch";
+  Initial: "stretch";
+  "Applies to": "flex containers";
+  Inherited: "no";
+  Percentages: "n/a";
+  "Computed value": "specified keyword";
+  "Canonical order": "per grammar";
+  "Animation type": "discrete";
+}
+
+export interface alignSelf {
+  Name: "align-self";
+  Value: "auto" | "flex-start" | "flex-end" | "center" | "baseline" | "stretch";
+  Initial: "stretch";
+  "Applies to": "flex items";
+  Inherited: "no";
+  Percentages: "n/a";
+  "Computed value": "specified keyword";
+  "Canonical order": "per grammar";
+  "Animation type": "discrete";
+}
+
+export interface alignmentBaseline {
+  Name: "alignment-baseline";
+  Value:
+    | "baseline"
+    | "text-bottom"
+    | "alphbetic"
+    | "ideographic"
+    | "middle"
+    | "central"
+    | "mathematical"
+    | "text-top";
+  Initial: "baseline";
+  "Applies to": "inline-level boxes, flex items, grid items, table cells, and SVG text content";
+  Inherited: "no";
+  Percentages: "n/a";
+  "Computed value": "specified keyword";
+  "Canonical order": "per grammar";
+  "Animation type": "discrete";
+}
+
+export interface anchorName {
+  Name: "anchor-name";
+  Value: "none" | cssValues.dashedIdent;
+  Initial: "none";
+  "Applies to": "all elements that generate a principal box";
+  Inherited: "no";
+  Percentages: "n/a";
+  "Computed value": "as specified";
+  "Canonical order": "per grammar";
+  "Animation type": "discrete";
+}
+
+export interface anchorScope {
+  Name: "anchor-scope";
+  Value: "none" | "all" | cssValues.dashedIdent;
+  Initial: "none";
+  "Applies to": "all elements";
+  Inherited: "no";
+  Percentages: "n/a";
+  "Computed value": "as specified";
+  "Canonical order": "per grammar";
+  "Animation type": "discrete";
+}
+
+type aspectRationValue = "auto" | cssValues.ratio | `auto ${cssValues.ratio}` | `${cssValues.ratio} auto`;
+
+export interface aspectRatio {
+  Name: "aspect-ratio";
+  Value: aspectRationValue;
+  Initial: "auto";
+  "Applies to": "all elements except inline boxes and internal ruby or table boxes";
+  Inherited: "no";
+  Percentages: "n/a";
+  "Computed value": "specified keyword or a pair of numbers";
+  "Canonical order": "per grammar";
+  "Animation type": "by computed value";
+}
+
+//[[ left-side | far-left | left | center-left | center | center-right | right | far-right | right-side ] || behind ]
+type azimuthValue = "left-side" | "far-left" | "left" | "center-left" | "center" | "center-right" | "right" | "far-right" | "right-side"
+
+export interface azimuth {
+  Name: "azimuth";
+  Value: cssValues.angle | azimuthValue | "leftwards" | "rightwards" | "inherit";
+  Initial: "center";
+  "Applies to": "all elements";
+  Inherited: "yes";
+  Percentages: "n/a";
+  "Computed value": "normalized angel";
+  "Canonical order": "";
+  "Animation type": "";
+}
+

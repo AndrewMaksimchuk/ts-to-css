@@ -1,3 +1,13 @@
-import { margin } from ".";
+import { selector, margin, atrule } from ".";
 
-console.log(margin("2rem", "1rem"));
+console.log(
+  selector(
+    ".user",
+    margin("1px", "1px", "1px", "1px"),
+    margin("1px", "1px", "1px", "1px")
+  ),
+  selector("#form"),
+
+  atrule.namespace("http://"),
+  atrule.namespace("http://", "about")
+);

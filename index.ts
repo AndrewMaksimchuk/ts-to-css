@@ -1,8 +1,10 @@
-import type * as css from "./properties";
+import * as css from "./properties";
+export * as atrule from "./at-rule";
+export * as selector from "./selectors";
 
 interface Specification {
   Name: string;
-  Value: string;
+  Value: string | number;
   Initial: string;
   "Applies to": string;
   Inherited: string;
@@ -86,3 +88,31 @@ export const marginInlineEnd = builder<css.marginInlineEnd>(
 );
 export const marginBreak = builder<css.marginBreak>("margin-break", 1);
 export const marginTrim = builder<css.marginTrim>("margin-trim", 1);
+export const accentColor = builder<css.accentColor>("accent-color", 1);
+export const appearance = builder<css.appearence>("appearance", 1);
+
+/** The all property is a shorthand that resets all CSS properties except direction and unicode-bidi. It only accepts the CSS-wide keywords. It does not reset custom properties */
+export const all = builder<css.all>("all", 1);
+
+/** The align-content property aligns a flex container’s lines within the flex container when there is extra space in the cross-axis, similar to how justify-content aligns individual items within the main-axis. Note, this property has no effect on a single-line flex container. */
+export const alignContent = builder<css.alignContent>("align-content", 1);
+
+export const alignItems = builder<css.alignItems>("align-items", 1);
+export const alignSelf = builder<css.alignSelf>("align-self", 1);
+
+/** This property specifies the box’s alignment baseline: the baseline used to align the box prior to applying its post-alignment shift (if applicable). */
+export const alignmentBaseline = builder<css.alignmentBaseline>(
+  "alignment-baseline",
+  1
+);
+
+/** The anchor-name property declares that an element is an anchor element, whose principal box is an anchor box, and gives it a list of anchor names to be targeted by. */
+export const anchorName = builder<css.anchorName>("anchor-name", 1);
+
+/** This property scopes the specified anchor names, and lookups for these anchor names, to this element’s subtree. */
+export const anchorScope = builder<css.anchorScope>("anchor-scope", 1);
+
+/** This property sets a preferred aspect ratio for the box, which will be used in the calculation of auto sizes and some other layout functions. */
+export const aspectRatio = builder<css.aspectRatio>("aspect-ratio", 1);
+
+export const azimuth = builder<css.azimuth>("azimuth", 1);

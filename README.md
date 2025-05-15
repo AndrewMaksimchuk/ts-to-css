@@ -1,13 +1,16 @@
 ## Note
 
-https://www.w3.org/Style/CSS/all-properties.en.html
-https://github.com/rafamadriz/friendly-snippets/blob/main/snippets/css.json
-https://code.visualstudio.com/docs/editor/userdefinedsnippets
-https://code.visualstudio.com/api/get-started/your-first-extension
+https://www.w3.org/Style/CSS/specs.en.html
+https://github.com/w3c/csswg-drafts/tree/main
+https://www.w3.org/Style/CSS/all-properties.en.html  
+https://github.com/rafamadriz/friendly-snippets/blob/main/snippets/css.json  
+https://code.visualstudio.com/docs/editor/userdefinedsnippets  
+https://code.visualstudio.com/api/get-started/your-first-extension  
 https://github.com/microsoft/vscode-extension-samples/blob/main/snippet-sample/package.json
 
 ## W3 property interface
 
+```ts
 Name: string;
 Value: string;
 Initial: string;
@@ -17,9 +20,11 @@ Percentages: string;
 "Computed value": string;
 "Canonical order": string;
 "Animation type": string;
+```
 
-### Template for typescript interface
+## Template for typescript interface
 
+```ts
 export interface {
     Name: ''
     Value:
@@ -31,19 +36,20 @@ export interface {
     "Canonical order": 'per grammar'
     "Animation type": ''
 }
+```
 
 ## Properties
 
 [ ] "--\*",
 [ ] "-webkit-line-clamp",
-[ ] "accent-color",
-[ ] "align-content",
-[ ] "align-items",
-[ ] "align-self",
-[ ] "alignment-baseline",
-[ ] "all",
-[ ] "anchor-name",
-[ ] "anchor-scope",
+[+] "accent-color",
+[+] "align-content",
+[+] "align-items",
+[+] "align-self",
+[+] "alignment-baseline",
+[+] "all",
+[+] "anchor-name",
+[+] "anchor-scope",
 [ ] "animation",
 [ ] "animation-composition",
 [ ] "animation-delay",
@@ -67,9 +73,9 @@ export interface {
 [ ] "animation-trigger-range-start",
 [ ] "animation-trigger-timeline",
 [ ] "animation-trigger-type",
-[ ] "appearance",
-[ ] "aspect-ratio",
-[ ] "azimuth",
+[+] "appearance",
+[+] "aspect-ratio",
+[+] "azimuth",
 [ ] "backface-visibility",
 [ ] "background",
 [ ] "background-attachment",
