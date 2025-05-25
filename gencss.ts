@@ -9,5 +9,7 @@ console.log(
   selector("#form"),
 
   atrule.namespace("http://"),
-  atrule.namespace("http://", "about")
+  atrule.namespace("http://", "about"),
+
+  selector(".card:hover", "")
 );

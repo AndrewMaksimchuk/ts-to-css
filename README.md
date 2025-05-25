@@ -7,6 +7,7 @@ https://github.com/rafamadriz/friendly-snippets/blob/main/snippets/css.json
 https://code.visualstudio.com/docs/editor/userdefinedsnippets  
 https://code.visualstudio.com/api/get-started/your-first-extension  
 https://github.com/microsoft/vscode-extension-samples/blob/main/snippet-sample/package.json
+https://www.ibm.com/docs/en/integration-bus/10.1?topic=diagrams-how-read-railroad
 
 ## W3 property interface
 

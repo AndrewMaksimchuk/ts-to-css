@@ -83,6 +83,8 @@ export type ratio = number | `${number}/${number}`;
 
 export type resolution = dimension<"dpi" | "dpcm" | "dppx" | "x">;
 
+/* https://www.w3.org/TR/css-color-4 */
+
 type alphaValue = number | percentage;
 
 type modernRgbSyntaxGroup = number | percentage | "none";
@@ -349,6 +351,7 @@ type colorBase =
   | colorMixFunction
   | "transparent";
 
+/* https://www.w3.org/TR/css-color-4/#typedef-system-color */
 type systemColor =
   | "AccentColor"
   | "AccentColorText"
@@ -384,7 +387,7 @@ type deviceCmykFunction = modernDeviceCmykSyntax;
 type lightDarkFunction = `light-dark(${string}, ${string})`; // Must be: type lightDarkFunction = `light-dark(${color}, ${color})`;
 
 export type color =
-  | "currentColor"
+  | "currentcolor"
   | colorBase
   | systemColor
   | contrastColorFunction

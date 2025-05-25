@@ -1,6 +1,6 @@
 import * as css from "./properties";
 export * as atrule from "./at-rule";
-export * as selector from "./selectors";
+export { selector } from "./selectors";
 
 interface Specification {
   Name: string;
