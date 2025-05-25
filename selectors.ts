@@ -486,8 +486,41 @@ type Selector =
   | pseudoElements
   | pseudoElementSelector;
 
-export function selector(name: Selector, ...properties: string[]) {
-  return `${name} {\n${properties
-    .map((property) => `\t${property}`)
-    .join("\n")}\n}`;
+function propertyWithError(selector: string, property: string) {
+  console.warn(
+    `[ SKIP ] Selector [ ${selector} ] must be fill with correct writen property { ${property} }.`
+  );
+}
+
+function propertyMissPart(properties: string[]) {
+  const badProperty = properties.find((property) => {
+    const [name, value] = property.split(":");
+    return !name || !value;
+  });
+
+  return "" === badProperty ? "Empty property" : badProperty;
+}
+
+export function selector<T extends string>(
+  name: Selector,
+  ...properties: T extends "" ? never : T[]
+) {
+  if (0 === properties["length"]) {
+    console.warn(`[ SKIP ] Selector [ ${name} ] must be fill with properties.`);
+    return "";
+  }
+
+  const propertyMissedPart = propertyMissPart(properties);
+  if (propertyMissedPart) {
+    propertyWithError(name, propertyMissedPart);
+    return "";
+  }
+
+  const badProperty = properties.find((property) => !property.includes(":"));
+  if (badProperty) {
+    propertyWithError(name, badProperty);
+    return "";
+  }
+
+  return `${name} { ${properties.map((property) => `${property}`).join(" ")} }`;
 }

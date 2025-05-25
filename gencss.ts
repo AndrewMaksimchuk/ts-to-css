@@ -11,5 +11,6 @@ console.log(
   atrule.namespace("http://"),
   atrule.namespace("http://", "about"),
 
-  selector(".card:hover", "")
+  selector(".card:hover", ""),
+  selector(".card:active", "dfsf:")
 );
