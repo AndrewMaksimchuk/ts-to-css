@@ -1,6 +1,6 @@
 import * as cssValues from "./values";
 
-interface Specification {
+export interface Specification {
   Name: string;
   Value: string | number;
   Initial: string;
@@ -12,18 +12,24 @@ interface Specification {
   "Animation type": string;
 }
 
+export type propertyName<T extends Specification> = `${T["Name"]}:${string}`;
+
 function builder<T extends Specification>(
   name: T["Name"],
   valueCounter: 1
-): (value: T["Value"]) => string;
+): (value: T["Value"]) => propertyName<T>;
 function builder<T extends Specification>(
   name: T["Name"],
   valueCounter: 2
-): (value: T["Value"], value2: T["Value"]) => string;
+): (value: T["Value"], value2: T["Value"]) => propertyName<T>;
 function builder<T extends Specification>(
   name: T["Name"],
   valueCounter: 3
-): (value: T["Value"], value2: T["Value"], value3: T["Value"]) => string;
+): (
+  value: T["Value"],
+  value2: T["Value"],
+  value3: T["Value"]
+) => propertyName<T>;
 function builder<T extends Specification>(
   name: T["Name"],
   valueCounter: 4
@@ -32,7 +38,7 @@ function builder<T extends Specification>(
   value2: T["Value"],
   value3: T["Value"],
   value4: T["Value"]
-) => string;
+) => propertyName<T>;
 
 function builder<T extends Specification>(
   name: T["Name"],

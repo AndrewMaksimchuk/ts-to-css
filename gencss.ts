@@ -1,18 +1,16 @@
-import { selector, property, atrule } from ".";
+import { selector, boxSizing, margin, atrule, display } from ".";
 
 console.log(
   selector(
     ".user",
-    property.margin("1px", "1px", "1px", "1px"),
-    property.margin("1px", "1px", "1px", "1px")
+    display("block"),
+    "display:lfkdsglksdfg",
+    boxSizing("border-box"),
+    margin("1px", "1px", "1px", "1px"),
+    margin("1px", "1px", "1px", "1px")
   ),
   selector("#form"),
 
   atrule.namespace("http://"),
-  atrule.namespace("http://", "about"),
-
-  selector(".card:hover", ""),
-  selector(".card:active", "dfsf:"),
-
-  selector("button.logout", "dsfdf:sdfsdf")
+  atrule.namespace("http://", "about")
 );

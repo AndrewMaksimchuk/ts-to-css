@@ -1,5 +1,35 @@
 // Source: https://www.w3.org/TR/selectors-4/
 
+import {
+  azimuth,
+  propertyName,
+  display,
+  boxSizing,
+  margin,
+  marginTop,
+  marginRight,
+  marginBottom,
+  marginLeft,
+  marginBlock,
+  marginInline,
+  marginBlockStart,
+  marginBlockEnd,
+  marginInlineStart,
+  marginInlineEnd,
+  marginBreak,
+  marginTrim,
+  accentColor,
+  appearence,
+  all,
+  alignContent,
+  alignItems,
+  alignSelf,
+  alignmentBaseline,
+  anchorName,
+  anchorScope,
+  aspectRatio,
+} from "./properties";
+
 type AnPlusBmicrosyntax =
   | `${number}n+${number}`
   | `${number}n-${number}`
@@ -501,10 +531,36 @@ function propertyMissPart(properties: string[]) {
   return "" === badProperty ? "Empty property" : badProperty;
 }
 
-export function selector<T extends string>(
-  name: Selector,
-  ...properties: T extends "" ? never : T[]
-) {
+type Properties = propertyName<
+  | display
+  | boxSizing
+  | margin
+  | marginTop
+  | marginRight
+  | marginBottom
+  | marginLeft
+  | marginBlock
+  | marginInline
+  | marginBlockStart
+  | marginBlockEnd
+  | marginInlineStart
+  | marginInlineEnd
+  | marginBreak
+  | marginTrim
+  | accentColor
+  | appearence
+  | all
+  | alignContent
+  | alignItems
+  | alignSelf
+  | alignmentBaseline
+  | anchorName
+  | anchorScope
+  | aspectRatio
+  | azimuth
+>;
+
+export function selector(name: Selector, ...properties: Properties[]) {
   if (0 === properties["length"]) {
     console.warn(`[ SKIP ] Selector [ ${name} ] must be fill with properties.`);
     return "";
@@ -513,12 +569,6 @@ export function selector<T extends string>(
   const propertyMissedPart = propertyMissPart(properties);
   if (propertyMissedPart) {
     propertyWithError(name, propertyMissedPart);
-    return "";
-  }
-
-  const badProperty = properties.find((property) => !property.includes(":"));
-  if (badProperty) {
-    propertyWithError(name, badProperty);
     return "";
   }
 
