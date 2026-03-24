@@ -69,7 +69,7 @@ type identCodePoints =
   | ""
   | `${letter | "_" | "-" | digit | nonASCIICodePoint}`
   | escape;
-export type identToken = `${identStartCodePoints}${identCodePoints}`;
+export type identToken = `${identStartCodePoints}${identCodePoints}`; // https://drafts.csswg.org/css-syntax-3/#ident-token-diagram
 
 export type functionToken = `${identToken}(`;
 export type atKeywordToken = `@${identToken}`;
@@ -95,3 +95,4 @@ export type leftParenthesisToken = "(";
 export type rightParenthesisToken = ")";
 export type leftCurlyBracketToken = "{";
 export type rightCurlyBracketToken = "}";
+export type preservedToken = ``; // Any token produced by the tokenizer except for <function-token>s, <{-token>s, <(-token>s, and <[-token>s.

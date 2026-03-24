@@ -16,25 +16,25 @@ export namespace grammar {
   //A bar (|) separates two or more alternatives: exactly one of them must occur.
 
   //Brackets ([ ]) are for grouping
-  type grouping<T> = T;
+  export type grouping<T> = T;
 
   //An asterisk (*) indicates that the preceding type, word, or group occurs zero or more times.
-  type asterisk<T extends string> =
+  export type asterisk<T extends string> =
     | ""
     | `${T}`
-    | `${T} ${T}`
-    | `${T} ${T} ${T}`
-    | `${T} ${T} ${T} ${T}`;
+    | `${T}${T}`
+    | `${T}${T}${T}`
+    | `${T}${T}${T}${T}`;
 
   //A plus (+) indicates that the preceding type, word, or group occurs one or more times.
-  type plus<T extends string> =
+  export type plus<T extends string> =
     | `${T}`
-    | `${T} ${T}`
-    | `${T} ${T} ${T}`
-    | `${T} ${T} ${T} ${T}`;
+    | `${T}${T}`
+    | `${T}${T}${T}`
+    | `${T}${T}${T}${T}`;
 
   //A question mark (?) indicates that the preceding type, word, or group is optional (occurs zero or one times).
-  type questionMark<T extends string> = asterisk<T>;
+  export type questionMark<T extends string> = asterisk<T>;
 
   //A single number in curly braces ({A}) indicates that the preceding type, word, or group occurs A times.
   // type curlyBrace<T extends string, N extends number> =
@@ -49,7 +49,7 @@ export namespace grammar {
     | `${U}${T}${U}`;
 
   /** A hash mark (#) indicates that the preceding type, word, or group occurs one or more times, separated by comma tokens (which may optionally be surrounded by white space and/or comments). It may optionally be followed by the curly brace forms, above, to indicate precisely how many times the repetition occurs, like <length>#{1,4}. */
-  type hashMark<
+  export type hashMark<
     T extends string,
     N extends number = 1
   > = surroundedByOptionally<

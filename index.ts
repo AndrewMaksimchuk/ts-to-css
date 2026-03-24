@@ -1,3 +1,3 @@
 export { selector } from "./selectors";
-export * as atrule from "./at-rule";
+export { atrule } from "./at-rule";
 export * from "./properties";

@@ -1,5 +1,7 @@
 import { selector, boxSizing, margin, atrule, display } from ".";
 
+const rule = atrule("@charset")
+
 console.log(
   selector(
     ".user",
@@ -11,6 +13,4 @@ console.log(
   ),
   selector("#form"),
 
-  atrule.namespace("http://"),
-  atrule.namespace("http://", "about")
 );

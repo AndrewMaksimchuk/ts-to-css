@@ -1,3 +1,8 @@
+Generate css properties, selectors and more by using functions with types
+
+> [!WARNING]
+> typescript in some cases can`t infer types because of too many combination of it
+
 ## Note
 
 https://www.w3.org/Style/CSS/specs.en.html

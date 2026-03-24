@@ -1,0 +1,8 @@
+{
+  "dependencies": {},
+  "devDependencies": {
+    "@vitest/coverage-v8": "4.0.18",
+    "@vitest/ui": "^4.1.0",
+    "vitest": "^4.0.18"
+  }
+}
